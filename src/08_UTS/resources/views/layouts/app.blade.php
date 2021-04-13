@@ -52,6 +52,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline"
+                                   style="color:white">Home</a>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
