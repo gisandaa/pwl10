@@ -15,7 +15,7 @@ class ProductController extends Controller
     }
     function hello1()
     {
-        return view('coba.hello', ['name' => 'Andika']);
+        return view('coba.hello', ['name' => 'Gisanda']);
     }
     // function StoryBooks()
     // {
