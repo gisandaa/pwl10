@@ -76,14 +76,10 @@ class MahasiswaController extends Controller
         $mahasiswas = Mahasiswa::with('kelas')->where('nim',$Nim)->first(); 
         return view('mahasiswas.detail', ['Mahasiswa'=> $mahasiswas]);
     }
-    public function Nilai($Nim){
-        $mahasiswas = Mahasiswa::with('mahasiswas')
-        ->where('mahasiswa-id',$Nim)
-        ->first();
-         $nilai = Nilai::with('matakuliah')
-        ->where('mahasiswa_id',$Nim)
-        ->get();
-    return view('mahasiswas.nilai', compact('mahasiswas', 'nilai'));
+    public static function nilai($Nim)
+    {
+        $Mahasiswa = Mahasiswa::with('kelas','matakuliah')->where('Nim', $Nim)->first();
+        return view('mahasiswas.nilai', compact('Mahasiswa'));
     }
 
     /**

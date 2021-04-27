@@ -1,16 +1,16 @@
 @extends('mahasiswas.layout')
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-sm-10">
-        <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
-    </div>
+<div class="pull-left mt-2">
+            <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+        </div>
     <div class="col-sm-4">
         <h2>KARTU HASIL STUDI</h2>
     </div>
 </div>
-@if($mahasiswa)
-<p><strong>Nim&nbsp;: </strong>{{ $Mahasiswa->nim }}</p>
-<p><strong>Nama&nbsp;: </strong>{{ $Mahasiswa->nama }}</p>
+@if($Mahasiswa)
+<p><strong>Nim&nbsp;: </strong>{{ $Mahasiswa->Nim }}</p>
+<p><strong>Nama&nbsp;: </strong>{{ $Mahasiswa->Nama}}</p>
 <p><strong>Kelas&nbsp;: </strong>{{ $Mahasiswa->Kelas->nama_kelas }}</p>
 @else
 <h2>Belum ada data!</h2>
@@ -22,16 +22,15 @@
         <th>Semester</th>
         <th>Nilai</th>
     </tr>
-    @if($nilai)
-    @foreach($nilai as $Nilai)
+    @foreach ($Mahasiswa->matakuliah as $mhs)
     <tr>
-        <td>{{ $Nilai->matakuliah->nama_matkul }}</td>
-        <td>{{ $Nilai->matakuliah->sks }}</td>
-        <td>{{ $Nilai->matakuliah->semester }}</td>
-        <td>{{ $Nilai->nilai }}</td>
+        <td>{{ $mhs->nama_matkul }}</td>
+        <td>{{ $mhs->sks }}</td>
+        <td>{{ $mhs->semester }}</td>
+        <td>{{ $mhs->pivot->nilai}}</td>
+		
     </tr>
     @endforeach
-    @endif
 </table>
 <div class="row justify-content-end">
     <a href="{{ route('mahasiswas.index') }}" class="btn btn-danger">Kembali</a>
