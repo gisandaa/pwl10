@@ -23,7 +23,6 @@ class MahasiswaSeeder extends Seeder
                 [
                     'Nim' => '194172' . $faker->randomNumber(4),
                     'Nama' => $faker->name(),
-                    'Kelas' => 'TI-2Bp',
                     'Jurusan' => 'Teknologi Informasi',
                     'No_handphone' => '08' . $faker->randomNumber(8),
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
