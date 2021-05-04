@@ -14,8 +14,8 @@ class AddKolom extends Migration
     public function up()
     {
         Schema::table('mahasiswas', function (Blueprint $table) {
-            $table->string('email')->nullable()->after('jurusan');
-            $table->date('tanggal_lahir')->nullable()->after('no_handphone');
+            $table->string('email')->nullable()->after('Jurusan');
+            $table->date('tanggal_lahir')->nullable()->after('No_handphone');
         });
     }
 
