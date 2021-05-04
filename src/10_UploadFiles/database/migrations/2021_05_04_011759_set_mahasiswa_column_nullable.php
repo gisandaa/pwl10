@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKolom extends Migration
+class SetMahasiswaColumnNullable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddKolom extends Migration
     public function up()
     {
         Schema::table('mahasiswas', function (Blueprint $table) {
-            $table->string('email')->nullable()->after('Jurusan');
-            $table->date('tanggal_lahir')->nullable()->after('No_handphone');
+            $table->string('no_handphone', 13)->nullable()->change();
         });
     }
 

@@ -45,11 +45,11 @@
         <th>Jurusan</th>
         <th width="280px">Action</th>
     </tr>
-    @foreach ($paginate as $Mahasiswa)
+    @foreach ($mahasiswa as $Mahasiswa)
     <tr>
         <td>{{ $Mahasiswa->Nim }}</td>
         <td>{{ $Mahasiswa->Nama }}</td>
-        <td>{{ $Mahasiswa->foto }}</td>
+        <td><img src="{{ 'storage/' . $Mahasiswa->foto }}" alt="" srcset=""></td>
         <td>{{ $Mahasiswa->kelas->nama_kelas }}</td>
         <td>{{ $Mahasiswa->Jurusan }}</td>
         <td>
