@@ -20,7 +20,7 @@
                     </ul>
                 </div>
                 @endif
-                <form method="post" action="{{ route('mahasiswas.store') }}" id="myForm">
+                <form method="post" action="{{ route('mahasiswas.store') }}" id="myForm" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="Nim">Nim</label>
@@ -31,29 +31,22 @@
                         <input type="Nama" name="Nama" class="formcontrol" id="Nama" aria-describedby="Nama">
                     </div>
                     <div>
-                    <label for="image">Image </label>
-                    <input type="file" class="form-control" name="image" value="{{ $mahasiswas->image}}" aria-describedby="Foto">
-                    <img width="100px" src="{{asset('storage/'.$mahasiswas->image)}}">
+                        <label for="image">Image </label>
+                        <input type="file" class="form-control" name="image" aria-describedby="Foto">
                     </div>
                     <div class="form-group">
                         <label for="Kelas">Kelas</label>
-                        <select class="form-control">
-                        @foreach($kelas as $kls)
-                        <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
-                        @endforeach
-                        </select>
-                        <label for="Kelas">Kelas</label>
-                       <select name ="Kelas" class="form-control">
-                       @foreach($kelas as $kls)
-                       <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
-                        @endforeach
+                        <select name="Kelas" class="form-control">
+                            @foreach($kelas as $kls)
+                            <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="Jurusan">Jurusan</label>
                         <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan" aria-describedby="Jurusan">
                     </div>
-                 
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
